@@ -46,7 +46,19 @@ public class Matriz {
             } 
         } 
         return matrizResultante; 
-    } 
+    }
+
+    public static Matriz calcularInversa(Matriz a) {
+        Matriz res = new Matriz(a.getDimension().height, a.getDimension().width, false);
+
+        for (int i = 0; i < a.getDimension().height; i++){
+            for (int j = 0; j < a.getDimension().width; j++){
+                res.datos[i][j] += a.datos[j][i];
+            }
+        }
+
+        return res;
+    }
 
     @Override
     public String toString(){
